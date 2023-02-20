@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Emotion Analysis</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="container">
+    <h1>Emotion Analysis</h1>
+    <form method="POST" action="{{ url_for('predict') }}">
+      <label for="text">Enter a sentence:</label>
+      <input type="text" id="text" name="text" placeholder="Enter a sentence...">
+      <input type="submit" value="Predict">
+    </form>
+    {% if prediction_text %}
+    <div class="result">
+      <p>Prediction: {{ prediction_text }}</p>
+    </div>
+    {% endif %}
+  </div>
+</body>
+</html>
